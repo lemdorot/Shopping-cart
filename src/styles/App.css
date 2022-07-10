@@ -48,3 +48,24 @@
   align-items: center;
   width: 100%;
 }
+
+.product {
+  display: flex;
+  padding: 15px;
+  border: 2px solid blue;
+  margin-top: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product__content {
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product__title {
+  margin-bottom: 0;
+}

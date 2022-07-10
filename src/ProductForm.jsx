@@ -7,16 +7,20 @@ const ProductForm = ({create}) => {
 
     const addNewProduct = (e) => {
         e.preventDefault()
-        const newProduct = {
-          id: Date.now(), ...product
+        if(product.title !== '' && product.price !== ''){
+          const newProduct = {
+            id: Date.now(), ...product
+          }
+          console.log(newProduct)
+          create(newProduct)
+          setProduct({title: '', price: ''})
         }
-        console.log(newProduct)
-        create(newProduct)
-        setProduct({title: '', price: ''})
       }
 
     return (
         <form>
+        {product.title === '' ? <p>Заполните название товара</p> : ''}
+        {product.price === '' ? <p>Заполните цену товара</p> : ''}
         <MyInput 
           value={product.title}
           onChange={e => setProduct({...product, title: e.target.value})}
