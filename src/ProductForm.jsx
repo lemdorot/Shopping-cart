@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MyInput from './components/UI/input/MyInput';
 import MyButton from './components/UI/button/MyButton';
 
-const ProductForm = () => {
+const ProductForm = ({create}) => {
     const [product, setProduct] = useState({title: '', price: ''})
 
     const addNewProduct = (e) => {
@@ -11,7 +11,7 @@ const ProductForm = () => {
           id: Date.now(), ...product
         }
         console.log(newProduct)
-        // create(newProduct)
+        create(newProduct)
         setProduct({title: '', price: ''})
       }
 
@@ -21,7 +21,7 @@ const ProductForm = () => {
           value={product.title}
           onChange={e => setProduct({...product, title: e.target.value})}
           type="text" 
-          placeholder='Название поста' 
+          placeholder='Название товара' 
         />
         <MyInput 
           value={product.price}
