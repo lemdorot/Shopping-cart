@@ -12,8 +12,8 @@ function App() {
     console.log(products)
   }
 
-  const removeProduct = (product) => {
-    setProducts(products.filter(p => p.id !== product.id))
+  const removeProduct = (post) => {
+    setProducts(products.filter(p => p.id !== post.id))
   }
 
   return (
