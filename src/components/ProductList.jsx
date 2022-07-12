@@ -7,7 +7,7 @@ const ProductList = ({products, title, remove}) => {
     if (!products.length) {
         return (
             <h1 style={{textAlign: 'center'}}>
-                Продукты не найдены!
+                Список пуст!
             </h1>
         )
     }
@@ -18,7 +18,7 @@ const ProductList = ({products, title, remove}) => {
                 {title}
             </h1>
                 {products.map((product, index) => 
-                    <ProductItem remove={remove} number={index + 1} product={product} />  
+                    <ProductItem key={product.id} remove={remove} number={index + 1} product={product} />  
                 )}
         </div>
     );

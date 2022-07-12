@@ -2,15 +2,16 @@ import React, {useState} from 'react';
 import './styles/App.css';
 import ProductForm from './ProductForm';
 import ProductList from './components/ProductList';
+import Statistic from './components/Statistic';
 
 function App() {
 
   const [products, setProducts] = useState([])
-  const [count, setCount] = useState(0);
+  const [productCounter, setProductCounter] = useState(0);
 
   const createProduct = (newProduct) => {
     setProducts([...products, newProduct])
-    setCount(count + 1)
+    setProductCounter(productCounter + 1)
   }
 
   const removeProduct = (post) => {
@@ -21,6 +22,7 @@ function App() {
     <div>
       <ProductForm create={createProduct}/>
       <ProductList remove={removeProduct} products={products} title="Продукты"/>
+      <Statistic productCounter={productCounter} products={products}/>
     </div>
   );
 }
