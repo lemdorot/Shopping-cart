@@ -49,6 +49,11 @@
   width: 100%;
 }
 
+#root div {
+  width: 100%;
+  max-width: 800px;
+} 
+
 .product {
   display: flex;
   padding: 15px;

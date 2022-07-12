@@ -4,32 +4,51 @@ import MyButton from './components/UI/button/MyButton';
 
 const ProductForm = ({create}) => {
     const [product, setProduct] = useState({title: '', price: ''})
+    const [titleError, setTitleError] = useState('')
+    const [priceError, setPriceError] = useState('')
 
     const addNewProduct = (e) => {
-        e.preventDefault()
-        if(product.title !== '' && product.price !== ''){
-          const newProduct = {
-            id: Date.now(), ...product
-          }
-          console.log(newProduct)
-          create(newProduct)
-          setProduct({title: '', price: ''})
+      e.preventDefault()
+      if(product.title !== '' && product.price !== ''){
+        const newProduct = {
+          id: Date.now(), ...product
         }
+        create(newProduct)
+        setProduct({title: '', price: ''})
       }
+    }
+
+    const titleHandler = (e) => {
+      setProduct({...product, title: e.target.value})
+      if (e.target.value === '') {
+        setTitleError('Название не может быть пустым')
+      } else {
+        setTitleError('')
+      }
+    }
+
+    const priceHandler = (e) => {
+      setProduct({...product, price: e.target.value})
+      if (e.target.value === '') {
+        setPriceError('Цена не может быть пустой')
+      } else {
+        setPriceError('')
+      }
+    }
 
     return (
         <form>
-        {product.title === '' ? <p>Заполните название товара</p> : ''}
-        {product.price === '' ? <p>Заполните цену товара</p> : ''}
+        {(titleError) && <div style={{color: 'red'}}>{titleError}</div>}
         <MyInput 
           value={product.title}
-          onChange={e => setProduct({...product, title: e.target.value})}
+          onChange={titleHandler}
           type="text" 
           placeholder='Название товара' 
         />
+        {(priceError) && <div style={{color: 'red'}}>{priceError}</div>}
         <MyInput 
           value={product.price}
-          onChange={e => setProduct({...product, price: e.target.value})}
+          onChange={priceHandler}
           type="number" 
           placeholder='Цена товара' 
         />

@@ -6,10 +6,11 @@ import ProductList from './components/ProductList';
 function App() {
 
   const [products, setProducts] = useState([])
+  const [count, setCount] = useState(0);
 
   const createProduct = (newProduct) => {
     setProducts([...products, newProduct])
-    console.log(products)
+    setCount(count + 1)
   }
 
   const removeProduct = (post) => {
