@@ -49,18 +49,23 @@
   width: 100%;
 }
 
-#root div {
+.wrapper {
   width: 100%;
   max-width: 800px;
 } 
 
 .product {
+  width: 100%;
   display: flex;
   padding: 15px;
   border: 2px solid blue;
   margin-top: 15px;
   justify-content: space-between;
   align-items: center;
+}
+
+.product__btn {
+  width: 20%;
 }
 
 .product__content {

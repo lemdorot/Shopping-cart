@@ -2,7 +2,7 @@ import React from 'react';
 import ProductItem from './ProductItem';
 
 
-const ProductList = ({products, title, remove}) => {
+const ProductList = ({products, title, remove, discount}) => {
 
     if (!products.length) {
         return (
@@ -18,7 +18,11 @@ const ProductList = ({products, title, remove}) => {
                 {title}
             </h1>
                 {products.map((product, index) => 
-                    <ProductItem key={product.id} remove={remove} number={index + 1} product={product} />  
+                    <ProductItem key={product.id} 
+                    remove={remove} 
+                    number={index + 1} 
+                    product={product} 
+                    discount={discount}/>  
                 )}
         </div>
     );
