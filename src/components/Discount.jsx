@@ -17,8 +17,8 @@ const Discount = (props) => {
     }
 
     return (
-        <div>
-            <div>
+        <div className='discount'>
+            <div className='discount-wrapper'>
             <MyInput 
                 value={discount}
                 onChange={onChange}

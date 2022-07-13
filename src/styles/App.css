@@ -85,3 +85,24 @@
   display: flex;
   justify-content: space-between;
 }
+
+.discount {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.discount-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.discount button {
+  width: 170px;
+}
+
+.discount input {
+  margin: 0;
+  padding: 10px;
+  width: 150px;
+}
